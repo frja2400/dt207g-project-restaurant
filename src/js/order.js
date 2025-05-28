@@ -2,31 +2,99 @@
 
 //Hämtar varukorg från localStorage och element som ska visa beställningar.
 document.addEventListener('DOMContentLoaded', () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const orderList = document.getElementById('orderList');
 
-    if (cart.length === 0) {
-        orderList.innerHTML = '<p>Varukorgen är tom.</p>';
-        return;
+    function renderCart() {
+        orderList.innerHTML = '';
+
+        if (cart.length === 0) {
+            orderList.innerHTML = '<p>Varukorgen är tom.</p>';
+            return;
+        }
+
+        //Loopar igenom och bygger HTML med namn, antal, +/- knappar, pris, totalpris och ta bort-knapp
+        cart.forEach(item => {
+            const div = document.createElement('div');
+            div.classList.add('orderItem');
+            div.dataset.id = item._id;
+            div.innerHTML = `
+                <h3>${item.name}</h3>
+                <p>
+                    Antal:
+                    <button class="decreaseBtn">-</button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button class="increaseBtn">+</button>
+                </p>
+                <p>Pris/st: ${item.price} kr</p>
+                <p>Total: <span class="itemTotal">${item.price * item.quantity}</span> kr</p>
+                <button class="removeBtn">TA BORT</button>
+                <hr>
+            `;
+            orderList.appendChild(div);
+        });
+
+        updateTotal();
     }
 
-    //Skriv ut varje produkt på skärmen.
-    cart.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('orderItem');
-        div.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>Antal: ${item.quantity}</p>
-            <p>Pris/st: ${item.price} kr</p>
-            <p>Total: ${item.price * item.quantity} kr</p>
-            <hr>
-        `;
-        orderList.appendChild(div);
+    //Räknar ut totalbelopp och skriver ut det på skärmen.
+    function updateTotal() {
+        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        let totalDiv = document.getElementById('totalDiv');
+
+        if (!totalDiv) {
+            totalDiv = document.createElement('div');
+            totalDiv.id = 'totalDiv';
+            orderList.appendChild(totalDiv);
+        }
+
+        totalDiv.innerHTML = `<h3>Totalt att betala: ${total} kr</h3>`;
+    }
+
+    //Uppdaterar skärmen med antal och totalsumma vid ändringar.
+    function updateOrderDisplay(orderItemDiv, item) {
+        orderItemDiv.querySelector('.quantity').textContent = item.quantity;
+        orderItemDiv.querySelector('.itemTotal').textContent = item.price * item.quantity;
+    }
+
+    //Lyssnar på klick på hela orderList.
+    orderList.addEventListener('click', (e) => {
+        const target = e.target;
+        const orderItemDiv = target.closest('.orderItem');
+        if (!orderItemDiv) return;
+
+        const id = orderItemDiv.dataset.id;
+        const itemIndex = cart.findIndex(item => item._id === id);
+        if (itemIndex === -1) return;
+
+        //Om användar klickar på + ökar antalet, vid - minskar antalet, vid 0 tas varan bort.
+        if (target.classList.contains('increaseBtn')) {
+            cart[itemIndex].quantity++;
+            updateOrderDisplay(orderItemDiv, cart[itemIndex]);
+        } else if (target.classList.contains('decreaseBtn')) {
+            if (cart[itemIndex].quantity > 1) {
+                cart[itemIndex].quantity--;
+                updateOrderDisplay(orderItemDiv, cart[itemIndex]);
+            } else {
+                cart.splice(itemIndex, 1);
+                orderItemDiv.remove();
+            }
+        } else if (target.classList.contains('removeBtn')) {
+            cart.splice(itemIndex, 1);
+            orderItemDiv.remove();
+        } else {
+            return; //Om annat element klickades, gör inget
+        }
+
+        //Spara ändringar i localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateTotal();
+
+        //Om varukorgen är tom, visa meddelande
+        if (cart.length === 0) {
+            orderList.innerHTML = '<p>Varukorgen är tom.</p>';
+        }
     });
 
-    //Visa totalsumman längst ned.
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const totalDiv = document.createElement('div');
-    totalDiv.innerHTML = `<h3>Totalt att betala: ${total} kr</h3>`;
-    orderList.appendChild(totalDiv);
+    renderCart();
 });

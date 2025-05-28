@@ -58,11 +58,20 @@ function renderData(data) {
     });
 }
 
-//Laddar varukorg från localStorage och gör om till array.
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+//Funktion för att läsa cart från localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+//Funktion för att spara cart i localStorage
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 //Lägg till i varukorg. Finns produkt så ökas antal med 1 och uppdaterar localStorage.
 function addToCart(menuItem) {
+    const cart = getCart();
+
     const existing = cart.find(item => item._id === menuItem._id);
     if (existing) {
         existing.quantity++;
@@ -70,12 +79,13 @@ function addToCart(menuItem) {
         cart.push({ ...menuItem, quantity: 1 });
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    saveCart(cart);
     updateCartIcon();
 }
 
 //Räknar total antal produkter
 function getCartCount() {
+    const cart = getCart();
     return cart.reduce((total, item) => total + item.quantity, 0);
 }
 
@@ -89,3 +99,9 @@ function updateCartIcon() {
         <span class="cart-count">${count}</span>
     `;
 }
+
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        updateCartIcon();
+    }
+});
