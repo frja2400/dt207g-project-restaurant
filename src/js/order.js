@@ -98,3 +98,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCart();
 });
+
+//Hämta formulär-element samt element för meddelanden.
+const form = document.getElementById("orderForm");
+const messageEl = document.getElementById("message");
+
+//Addera händelselyssnare på formulär
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    //Rensa tidigare meddelande samt klass
+    messageEl.textContent = "";
+    messageEl.className = "";
+
+    //Hämta värden från formuläret
+    const customerName = document.getElementById("name").value.trim();
+    const phoneNumber = document.getElementById("number").value.trim();
+    const street = document.getElementById("street").value.trim();
+    const postalCode = document.getElementById("postalcode").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+    //Kontrollera obligatoriska fält
+    if (!customerName || !phoneNumber || !street || !postalCode || !city) {
+        messageEl.textContent = "Alla fält måste fyllas i.";
+        messageEl.className = "error-message";
+        return;
+    }
+
+    //Hämta varukorg från localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    //Kontrollera att varukogen inte är tom.
+    if (cart.length === 0) {
+        messageEl.textContent = "Varukorgen är tom. Du måste lägga till minst en vara.";
+        messageEl.className = "error-message";
+        return;
+    }
+
+    //Bygg items-array enligt schemastruktur för beställningar.
+    const items = cart.map(item => ({
+        menuItem: item._id,
+        quantity: item.quantity
+    }));
+
+    //Räkna ut totalpris
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    //Bygg orderobjekt
+    const newOrder = {
+        customerName,
+        phoneNumber,
+        address: {
+            street,
+            postalCode,
+            city
+        },
+        items,
+        totalPrice
+    };
+
+    try {
+        const response = await fetch("https://dt207g-project-restapi.onrender.com/api/order", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newOrder)
+        });
+
+        if (!response.ok) throw new Error("Kunde inte skicka beställningen.");
+
+        //Töm formulär och varukorg
+        form.reset();
+        localStorage.removeItem("cart");
+        document.getElementById("orderList").innerHTML = "<p>Varukorgen är tom.</p>";
+
+        //Visa bekräftelse
+        messageEl.textContent = `Tack för din beställning!`;
+        messageEl.className = "success-message";
+    } catch (err) {
+        console.error("Fel vid beställning:", err);
+        messageEl.textContent = "Ett fel uppstod vid beställningen. Försök igen.";
+        messageEl.className = "error-message";
+    }
+});
