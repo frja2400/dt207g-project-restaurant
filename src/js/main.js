@@ -34,28 +34,57 @@ function renderData(data) {
     const menuEl = document.getElementById("menuContainer");
     menuEl.innerHTML = '';
 
-    data.forEach(menuItem => {
-        const row = document.createElement('div');
-        row.classList.add('menuItem');
+    //Skapa kategoribehållare
+    const categories = {
+        Pizza: [],
+        Pasta: [],
+        Dryck: []
+    };
 
-        const veganIcon = menuItem.isVegan ? 'Vegansk 🌱' : '';
-
-        row.innerHTML = `
-            <h3>${menuItem.name}</h3>
-            <p>${menuItem.description}</p>
-            <p><strong>Pris:</strong> ${menuItem.price} kr</p>
-            <p class="vegan">${veganIcon}</p>
-        `;
-
-        //Anropar addToCart-funktion vid klick
-        const button = document.createElement('button');
-        button.textContent = 'BESTÄLL';
-        button.classList.add('addBtn');
-        button.addEventListener('click', () => addToCart(menuItem));
-        row.appendChild(button);
-
-        menuEl.appendChild(row);
+    // Sortera menyobjekt in i kategorier
+    data.forEach(item => {
+        const cat = item.category?.toLowerCase();
+        if (cat === "pizza") categories.Pizza.push(item);
+        else if (cat === "pasta") categories.Pasta.push(item);
+        else if (cat === "dryck") categories.Dryck.push(item);
     });
+
+    //Rendera varje kategori
+    for (const [category, items] of Object.entries(categories)) {
+        const section = document.createElement('section');
+        section.classList.add('menuSection');
+
+        const heading = document.createElement('h2');
+        heading.textContent = category;
+        heading.classList.add('menuTitle');
+        section.appendChild(heading);
+
+        items.forEach(menuItem => {
+            const row = document.createElement('div');
+            row.classList.add('menuItem');
+
+            const veganIcon = menuItem.isVegan ? 'Vegansk 🌱' : '';
+
+            row.innerHTML = `
+                <h3>${menuItem.name}</h3>
+                <p>${menuItem.description}</p>
+                <p><strong>Pris:</strong> ${menuItem.price} kr</p>
+                <p class="vegan">${veganIcon}</p>
+            `;
+
+            //Anropar addToCart-funktion vid klick
+            const button = document.createElement('button');
+            button.textContent = 'BESTÄLL';
+            button.classList.add('addBtn');
+            button.addEventListener('click', () => addToCart(menuItem));
+            row.appendChild(button);
+
+            section.appendChild(row);
+        });
+
+        //Lägg till varje sektion
+        menuEl.appendChild(section);
+    }
 }
 
 //Funktion för att läsa cart från localStorage
