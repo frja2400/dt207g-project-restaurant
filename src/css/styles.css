@@ -27,6 +27,31 @@ header {
     text-align: center;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
+    margin-top: 10px;
+}
+
+header h1 {
+    color: #b22222;
+    text-shadow:
+        1px 1px 0 #fff,
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        2px 2px 0 #fff,
+        -2px -2px 0 #fff;
+}
+
+h1 span {
+    border: 1px solid white;
+    padding: 2px 4px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+footer p,
+header p {
+    line-height: 0.6em;
 }
 
 main {
@@ -38,7 +63,7 @@ main {
     background-color: #fffda3;
     box-sizing: border-box;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
     text-align: center;
 }
@@ -71,4 +96,24 @@ main {
 .pin.br {
     bottom: 10px;
     right: 10px;
+}
+
+header>a {
+    color: white;
+    background-color: #b22222;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+header>a:hover {
+    background-color: #800000;
+    text-decoration: none;
 }
