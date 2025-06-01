@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Pris/st: ${item.price} kr</p>
                 <p>Total: <span class="itemTotal">${item.price * item.quantity}</span> kr</p>
                 <button class="removeBtn">TA BORT</button>
-                <hr>
             `;
             orderList.appendChild(div);
         });

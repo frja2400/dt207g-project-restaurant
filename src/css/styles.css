@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
 }
 
+p {
+    line-height: 0.9em;
+}
+
 header {
     background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
     background-color: #e2cbab;
@@ -21,9 +25,7 @@ header {
     text-align: center;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
-    
     margin-top: 10px;
-    
 }
 
 header>a {
@@ -32,7 +34,6 @@ header>a {
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: 600;
-    
     transition: background-color 0.3s ease;
     position: absolute;
     top: 20px;
@@ -58,7 +59,7 @@ h1 {
         -1px 1px 0 #fff,
         2px 2px 0 #fff,
         -2px -2px 0 #fff;
-        margin-bottom: 6px;
+    margin-bottom: 6px;
 }
 
 img {
@@ -72,12 +73,18 @@ img {
 .tagline {
     font-family: 'Italianno', cursive;
     font-size: 2.0em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.info {
+    display: block;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 10px;
 }
 
 main {
-    position: relative;
     flex: 1;
     width: 80%;
     max-width: 500px;
@@ -86,39 +93,7 @@ main {
     box-sizing: border-box;
     margin-top: 20px;
     margin-bottom: 20px;
-    
     text-align: center;
-    
-}
-
-.pin {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: #b22222;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    z-index: 3;
-}
-
-.pin.tl {
-    top: 10px;
-    left: 10px;
-}
-
-.pin.tr {
-    top: 10px;
-    right: 10px;
-}
-
-.pin.bl {
-    bottom: 10px;
-    left: 10px;
-}
-
-.pin.br {
-    bottom: 10px;
-    right: 10px;
 }
 
 h2 {
@@ -129,12 +104,73 @@ h2 {
     font-weight: 100;
 }
 
-.menu, .openHours {
-    border-bottom: 2px dashed rgb(90, 82, 82);
+h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 10px;
+    border-top: 2px dashed rgb(90, 82, 82);
+    margin-bottom: 0;
+}
+
+.menu,
+.openHours {
+    border-bottom: 2px solid rgb(90, 82, 82);
     margin-right: 20px;
     margin-left: 20px;
 }
 
 #menuContainer {
     margin-bottom: 10px;
+}
+
+.contact a {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.contact {
+    margin-bottom: 30px;
+}
+
+.menuItem {
+    position: relative;
+    padding: 10px 30px 10px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(90, 82, 82, 0.2);
+}
+
+.menuItem:last-child {
+    border-bottom: none;
+}
+
+.menuItem h4 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.menuItem p {
+    line-height: 0.6em;
+}
+
+.addBtn {
+    background-color: #b22222;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.addBtn:hover {
+    background-color: #800000;
+}
+
+.vegan {
+    color: green;
+    font-weight: bold;
 }
