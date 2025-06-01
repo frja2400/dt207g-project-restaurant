@@ -14,19 +14,6 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-family: 'Italianno', cursive;
-    font-size: 3.5em;
-    letter-spacing: 0.1em;
-}
-
-.tagline {
-    font-family: 'Italianno', cursive;
-    font-size: 2.0em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 header {
     background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
     background-color: #e2cbab;
@@ -34,12 +21,35 @@ header {
     text-align: center;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
+    
     margin-top: 10px;
-    border: 3px solid black;
+    
 }
 
-header h1 {
+header>a {
+    color: white;
+    background-color: #b22222;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+header>a:hover {
+    background-color: #800000;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Italianno', cursive;
+    font-size: 3.5em;
+    letter-spacing: 0.1em;
     color: #b22222;
     text-shadow:
         1px 1px 0 #fff,
@@ -48,14 +58,7 @@ header h1 {
         -1px 1px 0 #fff,
         2px 2px 0 #fff,
         -2px -2px 0 #fff;
-        margin-bottom: 10px;
-}
-
-h1 span {
-    border: 1px solid white;
-    padding: 2px 4px;
-    margin: 0 2px;
-    display: inline-block;
+        margin-bottom: 6px;
 }
 
 img {
@@ -64,6 +67,13 @@ img {
     margin: 0;
     padding: 0;
     opacity: 0.7;
+}
+
+.tagline {
+    font-family: 'Italianno', cursive;
+    font-size: 2.0em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 main {
@@ -76,9 +86,9 @@ main {
     box-sizing: border-box;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
+    
     text-align: center;
-    border: 3px solid black;
+    
 }
 
 .pin {
@@ -111,22 +121,20 @@ main {
     right: 10px;
 }
 
-header>a {
-    color: white;
-    background-color: #b22222;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.40);
-    transition: background-color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    text-decoration: none;
-    font-size: 1.2rem;
+h2 {
+    font-family: 'Italianno', cursive;
+    font-size: 3.0em;
+    margin: 0;
+    margin-top: 10px;
+    font-weight: 100;
 }
 
-header>a:hover {
-    background-color: #800000;
-    text-decoration: none;
+.menu, .openHours {
+    border-bottom: 2px dashed rgb(90, 82, 82);
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#menuContainer {
+    margin-bottom: 10px;
 }

@@ -54,7 +54,7 @@ function renderData(data) {
         const section = document.createElement('section');
         section.classList.add('menuSection');
 
-        const heading = document.createElement('h2');
+        const heading = document.createElement('h3');
         heading.textContent = category;
         heading.classList.add('menuTitle');
         section.appendChild(heading);
@@ -66,7 +66,7 @@ function renderData(data) {
             const veganIcon = menuItem.isVegan ? 'Vegansk 🌱' : '';
 
             row.innerHTML = `
-                <h3>${menuItem.name}</h3>
+                <h4>${menuItem.name}</h4>
                 <p>${menuItem.description}</p>
                 <p><strong>Pris:</strong> ${menuItem.price} kr</p>
                 <p class="vegan">${veganIcon}</p>
