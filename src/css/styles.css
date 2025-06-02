@@ -24,23 +24,23 @@ header {
     margin-top: 10px;
 }
 
-header>a {
+#cartBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     color: white;
     background-color: #b22222;
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    text-decoration: none;
     font-size: 1.5rem;
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-header>a:hover {
+#cartBtn:hover {
     background-color: #800000;
-    text-decoration: none;
 }
 
 h1 {
@@ -172,3 +172,4 @@ h3 {
     padding-right: 30%;
     font-size: 0.9em;
 }
+
