@@ -134,6 +134,22 @@ form.addEventListener("submit", async (e) => {
         return;
     }
 
+    //Kontrollera telefonnummer
+    const phoneRegex = /^[0-9+\-\s]{7,15}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        messageEl.textContent = "Telefonnumret är inte korrekt ifyllt.";
+        messageEl.className = "error-message";
+        return;
+    }
+
+    //Kontrollera postkod
+    const postalRegex = /^[0-9]{5}$/;
+    if (!postalRegex.test(postalCode)) {
+        messageEl.textContent = "Postnumret är inte korrekt ifyllt.";
+        messageEl.className = "error-message";
+        return;
+    }
+
     //Bygg items-array enligt schemastruktur för beställningar.
     const items = cart.map(item => ({
         menuItem: item._id,
@@ -183,7 +199,7 @@ form.addEventListener("submit", async (e) => {
         backButton.addEventListener("click", () => {
             window.location.href = "index.html";
         });
-   
+
         messageEl.appendChild(document.createElement("br"));
         messageEl.appendChild(backButton);
     } catch (err) {

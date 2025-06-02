@@ -256,3 +256,13 @@ input {
 .backBtn {
     margin-top: 30px;
 }
+
+.error-message {
+    font-weight: bold;
+    color: red;
+}
+
+.success-message {
+    font-weight: bold;
+    color: green;
+}

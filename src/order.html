@@ -19,19 +19,19 @@
         </div>
         <form id="orderForm" novalidate>
             <label for="name">Namn*:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" maxlength="50" required>
 
             <label for="number">Telefon-nummer*:</label>
-            <input type="text" id="number" name="number" required>
+            <input type="text" id="number" name="number" maxlength="15" pattern="^[0-9+\-\s]{7,15}$" required>
 
             <label for="street">Gata*:</label>
-            <input type="text" id="street" name="street" required>
+            <input type="text" id="street" name="street" maxlength="50" required>
 
             <label for="postalcode">Postnummer*:</label>
-            <input type="text" id="postalcode" name="postalcode" required>
+            <input type="text" id="postalcode" name="postalcode" maxlength="5" pattern="^[0-9]{5}$" required>
 
             <label for="city">Stad*:</label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" name="city" maxlength="50" required>
 
             <p>Välj betalningsalternativ*:</p>
             <label>
