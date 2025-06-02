@@ -19,14 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
             div.classList.add('orderItem');
             div.dataset.id = item._id;
             div.innerHTML = `
-                <h3>${item.name}</h3>
+                <p><strong>${item.name}</strong><p>
                 <p>
                     Antal:
-                    <button class="decreaseBtn">-</button>
+                    <button class="decreaseBtn">–</button>
                     <span class="quantity">${item.quantity}</span>
                     <button class="increaseBtn">+</button>
                 </p>
-                <p>Pris/st: ${item.price} kr</p>
                 <p>Total: <span class="itemTotal">${item.price * item.quantity}</span> kr</p>
                 <button class="removeBtn">TA BORT</button>
             `;
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             orderList.appendChild(totalDiv);
         }
 
-        totalDiv.innerHTML = `<h3>Totalt att betala: ${total} kr</h3>`;
+        totalDiv.innerHTML = `<p><strong>Totalt att betala: ${total} kr</strong></p>`;
     }
 
     //Uppdaterar skärmen med antal och totalsumma vid ändringar.
