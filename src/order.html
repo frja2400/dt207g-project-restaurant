@@ -17,42 +17,40 @@
             <div id="orderList"></div>
             <div id="message"></div>
         </div>
-        <div class="formContainer">
-            <form id="orderForm" novalidate>
-                <label for="name">Namn*:</label><br>
-                <input type="text" id="name" name="name" required><br>
+        <form id="orderForm" novalidate>
+            <label for="name">Namn*:</label>
+            <input type="text" id="name" name="name" required>
 
-                <label for="number">Telefon-nummer*:</label><br>
-                <input type="text" id="number" name="number" required><br>
+            <label for="number">Telefon-nummer*:</label>
+            <input type="text" id="number" name="number" required>
 
-                <label for="street">Gata*:</label><br>
-                <input type="text" id="street" name="street" required><br>
+            <label for="street">Gata*:</label>
+            <input type="text" id="street" name="street" required>
 
-                <label for="postalcode">Postnummer*:</label><br>
-                <input type="text" id="postalcode" name="postalcode" required><br>
+            <label for="postalcode">Postnummer*:</label>
+            <input type="text" id="postalcode" name="postalcode" required>
 
-                <label for="city">Stad*:</label><br>
-                <input type="text" id="city" name="city" required><br>
+            <label for="city">Stad*:</label>
+            <input type="text" id="city" name="city" required>
 
-                <p>Välj betalningsalternativ*:</p>
-                <label>
-                    <input type="radio" name="payment" value="swish" checked required>
-                    Swish
-                </label><br>
-                <label>
-                    <input type="radio" name="payment" value="kort" required>
-                    Kort vid leverans
-                </label><br>
-                <label>
-                    <input type="radio" name="payment" value="faktura" required>
-                    Faktura
-                </label><br>
+            <p>Välj betalningsalternativ*:</p>
+            <label>
+                <input type="radio" name="payment" value="swish" checked required>
+                Swish
+            </label>
+            <label>
+                <input type="radio" name="payment" value="kort" required>
+                Kort vid leverans
+            </label>
+            <label>
+                <input type="radio" name="payment" value="faktura" required>
+                Faktura
+            </label>
 
-                <p><i>* = Obligatoriska fält.</i></p>
+            <p><i>* = Obligatoriska fält.</i></p>
 
-                <div class="btnContainer"><button type="submit">SLUTFÖR BESTÄLLNING</button></div>
-            </form>
-        </div>
+            <div class="btnContainer"><button type="submit" class="orderBtn">SLUTFÖR BESTÄLLNING</button></div>
+        </form>
     </main>
 </body>
 

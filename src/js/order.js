@@ -175,6 +175,17 @@ form.addEventListener("submit", async (e) => {
         //Visa bekräftelse
         messageEl.textContent = `Tack för din beställning!`;
         messageEl.className = "success-message";
+
+        //Skapa tillbaka-knapp
+        const backButton = document.createElement("button");
+        backButton.textContent = "GÅ TILL MENY";
+        backButton.className = "backBtn";
+        backButton.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+   
+        messageEl.appendChild(document.createElement("br"));
+        messageEl.appendChild(backButton);
     } catch (err) {
         console.error("Fel vid beställning:", err);
         messageEl.textContent = "Ett fel uppstod vid beställningen. Försök igen.";
