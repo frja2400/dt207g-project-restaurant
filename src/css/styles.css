@@ -14,10 +14,6 @@ body {
     min-height: 100vh;
 }
 
-p {
-    line-height: 0.9em;
-}
-
 header {
     background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
     background-color: #e2cbab;
@@ -74,14 +70,13 @@ img {
     font-family: 'Italianno', cursive;
     font-size: 2.0em;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .info {
-    display: block;
     padding-right: 40px;
     padding-left: 40px;
-    padding-bottom: 10px;
+    font-size: 0.8em;
 }
 
 main {
@@ -107,9 +102,10 @@ h2 {
 h3 {
     font-size: 1.5em;
     font-weight: bold;
-    padding-top: 10px;
     border-top: 2px dashed rgb(90, 82, 82);
-    margin-bottom: 0;
+    margin-top: 10px;
+    padding-top: 15px;
+    margin-bottom: 10px;
 }
 
 .menu,
@@ -117,10 +113,6 @@ h3 {
     border-bottom: 2px solid rgb(90, 82, 82);
     margin-right: 20px;
     margin-left: 20px;
-}
-
-#menuContainer {
-    margin-bottom: 10px;
 }
 
 .contact a {
@@ -149,21 +141,21 @@ h3 {
 }
 
 .menuItem p {
-    line-height: 0.6em;
+    margin: 7px 0;
 }
 
 .addBtn {
     background-color: #b22222;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 4px 8px;
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    top: 20px;
 }
 
 .addBtn:hover {
@@ -173,4 +165,10 @@ h3 {
 .vegan {
     color: green;
     font-weight: bold;
+    font-size: 0.9em;
+}
+
+.description {
+    padding-right: 30%;
+    font-size: 0.9em;
 }

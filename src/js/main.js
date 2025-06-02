@@ -67,7 +67,7 @@ function renderData(data) {
 
             row.innerHTML = `
                 <h4>${menuItem.name}</h4>
-                <p>${menuItem.description}</p>
+                <p class="description"><i>${menuItem.description}</i></p>
                 <p><strong>Pris:</strong> ${menuItem.price} kr</p>
                 <p class="vegan">${veganIcon}</p>
             `;
