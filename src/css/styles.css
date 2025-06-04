@@ -272,11 +272,6 @@ input {
     color: red;
 }
 
-.success-message {
-    font-weight: bold;
-    color: green;
-}
-
 /*Design för mindre skärmar.*/
 @media screen and (max-width : 720px) {
     header {

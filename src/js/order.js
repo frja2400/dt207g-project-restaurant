@@ -189,8 +189,7 @@ form.addEventListener("submit", async (e) => {
         document.getElementById("orderList").innerHTML = "<p>Varukorgen är tom.</p>";
 
         //Visa bekräftelse
-        messageEl.textContent = `Tack för din beställning!`;
-        messageEl.className = "success-message";
+        messageEl.textContent = "Din beställning är mottagen och är snart på väg till dig! ✅";
 
         //Skapa tillbaka-knapp
         const backButton = document.createElement("button");
