@@ -15,6 +15,7 @@ body {
 }
 
 header {
+    position: relative;
     background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
     background-color: #e2cbab;
     width: 500px;
@@ -37,6 +38,7 @@ header {
     z-index: 1000;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
 #cartBtn:hover {
@@ -265,4 +267,74 @@ input {
 .success-message {
     font-weight: bold;
     color: green;
+}
+
+
+@media screen and (max-width : 720px) {
+    header {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-top: 0;
+    }
+
+    #cartBtn {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: auto;
+        transform: none;
+        padding: 10px 16px;
+        font-size: 1.2rem;
+        border-radius: 999px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: auto;
+        height: auto;
+    }
+
+    #cartContainer {
+        display: inline-block;
+        width: auto;
+        height: auto;
+    }
+
+    .header {
+        margin-top: 5px;
+        line-height: 1.0em;
+    }
+
+    .tagline {
+        line-height: 1.0em;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .info {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .menu,
+    .openHours,
+    .order {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .addBtn,
+    .removeBtn {
+        top: auto;
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    #orderForm {
+        width: 90%;
+    }
 }
