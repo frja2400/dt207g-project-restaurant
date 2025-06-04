@@ -15,7 +15,7 @@ Det här projektet är den publika frontend-delen för min fiktiva resturang Piz
 
 ## REST API-endpoints
 
-- GET /api/menu för att hämta menyobjekt.
-- POST /api/order för att skicka en ny beställning.
+- `GET /api/menu` för att hämta menyobjekt.
+- `POST /api/order` för att skicka en ny beställning.
 
 En liveversion av API:t finns tillgänglig på följande URL: https://dt207g-project-restapi.onrender.com/
