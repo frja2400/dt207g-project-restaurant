@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
+/*Grundläggande design med bakgrundsmönster.*/
 body {
     font-family: 'Roboto', Helvetica, sans-serif;
     display: flex;
@@ -14,6 +15,7 @@ body {
     min-height: 100vh;
 }
 
+/*Design för presentation av företag med välkomsttext och namn.*/
 header {
     position: relative;
     background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
@@ -25,6 +27,7 @@ header {
     margin-top: 10px;
 }
 
+/*Placerar varukorg uppe i högra hörnet med position fixed för bättre användarvänlighet.*/
 #cartBtn {
     position: fixed;
     top: 20px;
@@ -45,6 +48,7 @@ header {
     background-color: #800000;
 }
 
+/*Design på företagets namn som äve är loggan.*/
 .header {
     font-family: 'Italianno', cursive;
     font-size: 3.5em;
@@ -90,6 +94,7 @@ img {
     line-height: 1.5em;
 }
 
+/*Grunddesign på vad som representerar menyn och annan essetiell info.*/
 main {
     flex: 0 1 auto;
     width: 80%;
@@ -144,6 +149,7 @@ h3 {
     margin-bottom: 20px;
 }
 
+/*Sätter position relative för knapparna.*/
 .menuItem {
     position: relative;
     padding: 10px 30px 10px 10px;
@@ -165,6 +171,7 @@ h3 {
     margin: 7px 0;
 }
 
+/*Beställ och ta-bort knappar som placeras bredvid menyobjekten.*/
 .addBtn,
 .removeBtn {
     background-color: #b22222;
@@ -223,6 +230,7 @@ h3 {
     font-weight: bold;
 }
 
+/*Grundläggande design på formuläret.*/
 #orderForm {
     display: flex;
     flex-direction: column;
@@ -269,7 +277,7 @@ input {
     color: green;
 }
 
-
+/*Design för mindre skärmar.*/
 @media screen and (max-width : 720px) {
     header {
         width: 100%;
@@ -278,6 +286,7 @@ input {
         margin-top: 0;
     }
 
+    /*Flyttar varukorgen till nedre vänstra hörnet.*/
     #cartBtn {
         top: auto;
         bottom: 20px;
