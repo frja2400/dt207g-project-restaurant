@@ -321,6 +321,7 @@ input {
         max-width: none;
         margin-top: 0;
         margin-bottom: 0;
+        flex: 1;
     }
 
     .info {
