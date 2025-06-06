@@ -38,21 +38,19 @@
             <label for="city">Stad*:</label>
             <input type="text" id="city" name="city" maxlength="50" required>
 
-            <p>Välj betalningsalternativ*:</p>
-            <label>
-                <input type="radio" name="payment" value="swish" checked required>
-                Swish
-            </label>
-            <label>
-                <input type="radio" name="payment" value="kort" required>
-                Kort vid leverans
-            </label>
-            <label>
-                <input type="radio" name="payment" value="faktura" required>
-                Faktura
-            </label>
+            <fieldset>
+                <legend>Välj betalningsalternativ*:</legend>
+                <input type="radio" id="swish" name="payment" value="swish" checked required>
+                <label for="swish">Swish</label><br>
 
-            <p><i>* = Obligatoriska fält.</i></p>
+                <input type="radio" id="card" name="payment" value="kort" required>
+                <label for="card">Kort vid leverans</label><br>
+
+                <input type="radio" id="invoice" name="payment" value="faktura" required>
+                <label for="invoice">Faktura</label><br>
+            </fieldset>
+
+            <p><em>* = Obligatoriska fält.</em></p>
 
             <div class="btnContainer"><button type="submit" class="orderBtn">SLUTFÖR BESTÄLLNING</button></div>
         </form>
