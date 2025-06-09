@@ -25,7 +25,8 @@ header {
 }
 
 /*Placerar varukorg uppe i högra hörnet med position fixed för bättre användarvänlighet.*/
-#cartBtn {
+#cartBtn,
+.backToMenu {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -41,11 +42,12 @@ header {
     display: inline-block;
 }
 
-#cartBtn:hover {
+#cartBtn:hover,
+.backToMenu:hover {
     background-color: #800000;
 }
 
-/*Design på företagets namn som äve är loggan.*/
+/*Design på företagets namn som även är loggan.*/
 .header {
     font-family: 'Italianno', cursive;
     font-size: 3.5em;
@@ -291,6 +293,15 @@ input {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: auto;
         height: auto;
+    }
+
+    .backToMenu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.1em;
+        color: #b22222;
+        background-color: transparent;
     }
 
     #cartContainer {
