@@ -304,6 +304,11 @@ input {
         background-color: transparent;
     }
 
+    .backToMenu:hover {
+        color: #800000;
+        background-color: transparent;
+    }
+
     #cartContainer {
         display: inline-block;
         width: auto;

@@ -191,7 +191,7 @@ form.addEventListener("submit", async (e) => {
         //Visa bekräftelse
         messageEl.textContent = "Din beställning är mottagen och är snart på väg till dig! ✅";
 
-        // Dölj tillbaka-pilen om den finns
+        //Dölj tillbaka-pilen om den finns
         const backArrow = document.querySelector(".backToMenu");
         if (backArrow) {
             backArrow.style.display = "none";
