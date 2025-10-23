@@ -19,3 +19,7 @@ Det här projektet är den publika frontend-delen för min fiktiva resturang Piz
 - `POST /api/order` för att skicka en ny beställning.
 
 En liveversion av API:t finns tillgänglig på följande URL: https://dt207g-project-restapi.onrender.com/
+
+## Live Demo
+
+[Prova applikationen här](https://pizzeriaberna.netlify.app/)
